@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput } from "react-native";
+import { ImageBackground, StyleSheet, TextInput } from "react-native";
 import Flex from "../ui/Flex";
 import T from "../ui/T";
 import Button from "../ui/Button";
@@ -19,44 +19,56 @@ export default function Landing() {
 	}
 
 	return (
-		<Flex
-			direction="column"
-			flex={1}
-			px={16}
-			py={16}
-			gap={64}
-			items="center"
-			align="center"
-			bg="#313131"
+		<ImageBackground
+			source={require("../../assets/images/bg.webp")}
+			resizeMode="cover"
+			style={styles.background}
 		>
-			<T variant="display" c="white">
-				Wingman
-			</T>
 			<Flex
-				wfull
 				direction="column"
-				gap={24}
+				flex={1}
+				px={16}
+				py={16}
+				gap={64}
+				items="center"
 				align="center"
-				px={12}
-				py={12}
 			>
-				<TextInput
-					value={url}
-					onChangeText={setURL}
-					style={styles.textInput}
-					multiline
-					placeholder="Enter URL here..."
-					placeholderTextColor="white"
-				/>
-				<Button
-					variant="icon"
-					style={styles.enterButton}
-					onPress={handlePress}
+				<Flex direction="column" align="center" gap={12}>
+					<T variant="display" c="white">
+						Wingman
+					</T>
+					<T c="white">See, Understand, Connect.</T>
+				</Flex>
+				<Flex
+					wfull
+					direction="column"
+					gap={24}
+					align="center"
+					px={12}
+					py={12}
 				>
-					<AntDesign name="arrowright" size={24} color="#313131" />
-				</Button>
+					<TextInput
+						value={url}
+						onChangeText={setURL}
+						style={styles.textInput}
+						multiline
+						placeholder="Enter URL here..."
+						placeholderTextColor="white"
+					/>
+					<Button
+						variant="icon"
+						style={styles.enterButton}
+						onPress={handlePress}
+					>
+						<AntDesign
+							name="arrowright"
+							size={24}
+							color="#313131"
+						/>
+					</Button>
+				</Flex>
 			</Flex>
-		</Flex>
+		</ImageBackground>
 	);
 }
 
@@ -69,8 +81,13 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: "white",
 		borderRadius: 6,
+		backgroundColor: "#31313144",
 	},
 	enterButton: {
 		backgroundColor: "white",
+	},
+	background: {
+		flex: 1,
+		justifyContent: "center",
 	},
 });

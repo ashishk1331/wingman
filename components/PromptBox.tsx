@@ -29,11 +29,6 @@ export default function PromptBox() {
 					placeholder="Ask anything..."
 					placeholderTextColor="white"
 				/>
-				<Flex wfull items="flex-end">
-					<Button style={styles.upload}>
-						<AntDesign name="arrowup" size={16} color="#313131" />
-					</Button>
-				</Flex>
 			</Flex>
 			<Button
 				variant="icon"
@@ -56,6 +51,7 @@ const styles = StyleSheet.create({
 		padding: 12,
 	},
 	padBottom: {
-		marginBottom: 8,
+		borderRadius: 128,
+		padding: 20,
 	},
 });
